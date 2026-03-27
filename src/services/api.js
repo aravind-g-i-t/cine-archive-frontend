@@ -19,7 +19,7 @@ export const getSessionId = () => {
 };
 
 export const searchMovies = async (query, page = 1) => {
-  const response = await api.get("/movies/search", {
+  const response = await api.get("/api/movies/search", {
     params: { q: query, page },
   });
   return response.data;
@@ -27,7 +27,7 @@ export const searchMovies = async (query, page = 1) => {
 
 export const fetchFavourites = async () => {
   const sessionId = getSessionId();
-  const response = await api.get("/movies/favorites", {
+  const response = await api.get("/api/movies/favorites", {
     params: { sessionId },
   });
   return response.data.favourites;
@@ -35,20 +35,20 @@ export const fetchFavourites = async () => {
 
 export const addFavourite = async (movie) => {
   const sessionId = getSessionId();
-  const response = await api.post("/movies/favorites", { sessionId, movie });
+  const response = await api.post("/api/movies/favorites", { sessionId, movie });
   return response.data.favourites;
 };
 
 export const removeFavourite = async (imdbID) => {
   const sessionId = getSessionId();
-  const response = await api.delete(`/movies/favorites/${imdbID}`, {
+  const response = await api.delete(`/api/movies/favorites/${imdbID}`, {
     params: { sessionId },
   });
   return response.data.favourites;
 };
 
 export const fetchMovieById = async (imdbID) => {
-  const response = await api.get("/movies/details", {
+  const response = await api.get("/api/movies/details", {
     params: { imdbID },
   });
   return response.data;
