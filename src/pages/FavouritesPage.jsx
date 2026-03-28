@@ -9,7 +9,6 @@ const FavouritesPage = () => {
 
   return (
     <div className="page">
-      {/* Header */}
       <div className="search-header">
         <h1 className="search-title">Your Favourites</h1>
         <p className="search-subtitle">
@@ -19,7 +18,6 @@ const FavouritesPage = () => {
         </p>
       </div>
 
-      {/* Loading state */}
       {loading && (
         <div className="movie-grid">
           {Array.from({ length: 4 }).map((_, i) => (
@@ -42,7 +40,6 @@ const FavouritesPage = () => {
         </div>
       )}
 
-      {/* Favourites grid */}
       {!loading && favourites.length > 0 && (
         <div className="movie-grid">
           {favourites.map((movie) => (

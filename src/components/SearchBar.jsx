@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import useDebounce from "../hooks/useDebounce.js";
 
-// ─── SearchBar ────────────────────────────────────────────────────────────────
-//
-// Props:
-//   onSearch(query) — called with the debounced query value
-//   isLoading       — shows a loading indicator while fetching
 
 const SearchBar = ({ onSearch, isLoading }) => {
   const [inputValue, setInputValue] = useState("");

@@ -48,7 +48,6 @@ const MovieDetailPage = () => {
     }
   };
 
-  // ── Loading state ──────────────────────────────────────────────────────────
   if (isLoading) {
     return (
       <div className="page">
@@ -66,7 +65,6 @@ const MovieDetailPage = () => {
     );
   }
 
-  // ── Error state ────────────────────────────────────────────────────────────
   if (error) {
     return (
       <div className="page">
@@ -83,19 +81,16 @@ const MovieDetailPage = () => {
 
   if (!movie) return null;
 
-  // ── Parse fields ───────────────────────────────────────────────────────────
   const genres = movie.Genre !== "N/A" ? movie.Genre.split(", ") : [];
   const ratings = movie.Ratings || [];
 
   return (
     <div className="page">
-      {/* Back button */}
       <button className="back-btn" onClick={() => navigate(-1)}>
         ← Back
       </button>
 
       <div className="detail-layout">
-        {/* ── Left: Poster ────────────────────────────────────────────────── */}
         <div className="detail-poster-col">
           <div className="detail-poster-wrapper">
             <img
@@ -105,7 +100,6 @@ const MovieDetailPage = () => {
             />
           </div>
 
-          {/* Heart button below poster */}
           <button
             className={`detail-heart-btn ${favourited ? "detail-heart-btn--active" : ""}`}
             onClick={handleHeartClick}
@@ -114,9 +108,7 @@ const MovieDetailPage = () => {
           </button>
         </div>
 
-        {/* ── Right: Info ──────────────────────────────────────────────────── */}
         <div className="detail-info-col">
-          {/* Title + year */}
           <h1 className="detail-title">{movie.Title}</h1>
           <p className="detail-year-runtime">
             {movie.Year}
@@ -126,7 +118,6 @@ const MovieDetailPage = () => {
             )}
           </p>
 
-          {/* Genres */}
           {genres.length > 0 && (
             <div className="detail-genres">
               {genres.map((g) => (
@@ -137,7 +128,6 @@ const MovieDetailPage = () => {
             </div>
           )}
 
-          {/* IMDB Rating */}
           {movie.imdbRating !== "N/A" && (
             <div className="detail-rating">
               <span className="detail-rating-star">★</span>
@@ -151,7 +141,6 @@ const MovieDetailPage = () => {
             </div>
           )}
 
-          {/* Plot */}
           {movie.Plot !== "N/A" && (
             <div className="detail-section">
               <h2 className="detail-section-title">Plot</h2>
@@ -159,7 +148,6 @@ const MovieDetailPage = () => {
             </div>
           )}
 
-          {/* Details grid */}
           <div className="detail-section">
             <h2 className="detail-section-title">Details</h2>
             <div className="detail-meta-grid">
@@ -208,7 +196,6 @@ const MovieDetailPage = () => {
             </div>
           </div>
 
-          {/* Ratings from other sources */}
           {ratings.length > 0 && (
             <div className="detail-section">
               <h2 className="detail-section-title">Ratings</h2>

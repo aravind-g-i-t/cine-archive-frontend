@@ -6,9 +6,6 @@ import {
 } from "../services/api.js";
 import FavouritesContext from "../context/FavouritesContext.js";
 
-// ─── Provider ─────────────────────────────────────────────────────────────────
-// This file only exports a single React component (FavouritesProvider),
-// which keeps React Fast Refresh happy.
 
 const FavouritesProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);

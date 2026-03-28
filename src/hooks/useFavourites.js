@@ -1,13 +1,6 @@
 import { useContext } from "react";
 import FavouritesContext from "../context/FavouritesContext.js";
 
-// ─── useFavourites ────────────────────────────────────────────────────────────
-//
-// Custom hook to consume FavouritesContext cleanly.
-// Throws an error if used outside of FavouritesProvider.
-//
-// Usage:
-//   const { favourites, addFavourite, removeFavourite, isFavourite } = useFavourites();
 
 const useFavourites = () => {
   const context = useContext(FavouritesContext);

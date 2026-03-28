@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useFavourites from "../hooks/useFavourites";
 
-// ─── Navbar ───────────────────────────────────────────────────────────────────
 
 const Navbar = () => {
   const { favourites } = useFavourites();
@@ -30,7 +29,6 @@ const Navbar = () => {
           }
         >
           Favourites
-          {/* Show count badge if there are favourites */}
           {favourites.length > 0 && (
             <span className="nav-badge">{favourites.length}</span>
           )}

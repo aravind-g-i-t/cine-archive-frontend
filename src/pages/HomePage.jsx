@@ -3,7 +3,6 @@ import SearchBar from "../components/SearchBar.jsx";
 import MovieGrid from "../components/MovieGrid.jsx";
 import { searchMovies } from "../services/api.js";
 
-// ─── Error codes ──────────────────────────────────────────────────────────────
 const ERROR = {
   TOO_MANY: "too_many",
   NOT_FOUND: "not_found",
@@ -31,7 +30,6 @@ const HomePage = () => {
     fetchMovies(query, currentPage);
   }, [query, currentPage]);
 
-  // Reset to page 1 whenever query changes
   useEffect(() => {
     setCurrentPage(1);
   }, [query]);
@@ -49,7 +47,6 @@ const HomePage = () => {
     } catch (err) {
       const message = err.response?.data?.error || "";
 
-      // Map OMDB error messages to internal error codes
       if (message === "Too many results.") {
         setError(ERROR.TOO_MANY);
       } else if (message === "Movie not found!") {
@@ -72,7 +69,6 @@ const HomePage = () => {
 
   return (
     <div className="page">
-      {/* Header */}
       <div className="search-header">
         <h1 className="search-title">Find your next movie</h1>
         <p className="search-subtitle">
@@ -81,7 +77,6 @@ const HomePage = () => {
         <SearchBar onSearch={setQuery} isLoading={isLoading} />
       </div>
 
-      {/* Results count */}
       {!isLoading && hasSearched && movies.length > 0 && (
         <p className="results-count">
           Found <strong>{totalResults}</strong> results for{" "}
@@ -89,7 +84,6 @@ const HomePage = () => {
         </p>
       )}
 
-      {/* Loading skeleton */}
       {isLoading && (
         <div className="movie-grid">
           {Array.from({ length: 8 }).map((_, i) => (
@@ -98,9 +92,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* ── Error states ─────────────────────────────────────────────────────── */}
-
-      {/* Too many results — query is too broad */}
       {error === ERROR.TOO_MANY && !isLoading && (
         <div className="state-message">
           <span className="state-message-icon">🔍</span>
@@ -109,7 +100,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* No results found */}
       {error === ERROR.NOT_FOUND && !isLoading && (
         <div className="state-message">
           <span className="state-message-icon">🎬</span>
@@ -118,7 +108,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Generic/unexpected error */}
       {error === ERROR.GENERIC && !isLoading && (
         <div className="state-message">
           <span className="state-message-icon">⚠️</span>
@@ -127,9 +116,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* ── Empty / initial states ────────────────────────────────────────────── */}
-
-      {/* Searched but no results and no error (edge case fallback) */}
       {!isLoading && hasSearched && movies.length === 0 && !error && (
         <div className="state-message">
           <span className="state-message-icon">🎬</span>
@@ -138,7 +124,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Initial state — nothing typed yet */}
       {!hasSearched && !isLoading && (
         <div className="state-message">
           <span className="state-message-icon">🎥</span>
@@ -146,7 +131,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Movie grid with pagination */}
       {!isLoading && (
         <MovieGrid
           movies={movies}

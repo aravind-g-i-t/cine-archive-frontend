@@ -1,11 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useFavourites from "../hooks/useFavourites.js";
 
-// ─── MovieCard ────────────────────────────────────────────────────────────────
-//
-// Props:
-//   movie — { imdbID, Title, Year, Poster }
-
 const FALLBACK_POSTER = "https://via.placeholder.com/300x445?text=No+Poster";
 
 const MovieCard = ({ movie }) => {
@@ -15,7 +10,7 @@ const MovieCard = ({ movie }) => {
   const favourited = isFavourite(movie.imdbID);
 
   const handleHeartClick = (e) => {
-    e.stopPropagation(); // prevent navigating when clicking heart
+    e.stopPropagation();
     if (favourited) {
       removeFavourite(movie.imdbID);
     } else {

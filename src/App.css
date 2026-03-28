@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
 
-/* ─── Variables ─────────────────────────────────────────────────────────────── */
 
 :root {
   --color-bg: #f9f9f7;
@@ -18,7 +17,6 @@
   --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
-/* ─── Reset ─────────────────────────────────────────────────────────────────── */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -33,7 +31,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── Layout ─────────────────────────────────────────────────────────────────── */
 
 .app {
   min-height: 100vh;
@@ -52,7 +49,6 @@ body {
   padding: 40px 24px 80px;
 }
 
-/* ─── Navbar ─────────────────────────────────────────────────────────────────── */
 
 .navbar {
   position: fixed;
@@ -128,7 +124,6 @@ body {
   text-align: center;
 }
 
-/* ─── Search Header ──────────────────────────────────────────────────────────── */
 
 .search-header {
   text-align: center;
@@ -148,7 +143,6 @@ body {
   margin-bottom: 24px;
 }
 
-/* ─── SearchBar ──────────────────────────────────────────────────────────────── */
 
 .searchbar-wrapper {
   max-width: 560px;
@@ -218,7 +212,6 @@ body {
   background: var(--color-border);
 }
 
-/* ─── Results Count ──────────────────────────────────────────────────────────── */
 
 .results-count {
   font-size: 14px;
@@ -227,7 +220,6 @@ body {
   text-align: center;
 }
 
-/* ─── Movie Grid ─────────────────────────────────────────────────────────────── */
 
 .movie-grid-wrapper {
   display: flex;
@@ -241,7 +233,6 @@ body {
   gap: 20px;
 }
 
-/* ─── Movie Card ─────────────────────────────────────────────────────────────── */
 
 .movie-card {
   background: var(--color-surface);
@@ -322,7 +313,6 @@ body {
   color: var(--color-text-secondary);
 }
 
-/* ─── Skeleton ───────────────────────────────────────────────────────────────── */
 
 .movie-card--skeleton {
   aspect-ratio: 2/4;
@@ -338,7 +328,6 @@ body {
   box-shadow: none;
 }
 
-/* ─── State Messages ─────────────────────────────────────────────────────────── */
 
 .state-message {
   display: flex;
@@ -365,7 +354,6 @@ body {
   font-size: 14px;
 }
 
-/* ─── Pagination ─────────────────────────────────────────────────────────────── */
 
 .pagination {
   display: flex;
@@ -416,7 +404,6 @@ body {
   font-size: 13px;
 }
 
-/* ─── Button ─────────────────────────────────────────────────────────────────── */
 
 .btn-primary {
   background: var(--color-accent);
@@ -447,7 +434,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* ─── Responsive ─────────────────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
   .navbar {
@@ -468,7 +454,6 @@ body {
   }
 }
 
-/* ─── Back Button ────────────────────────────────────────────────────────────── */
 
 .back-btn {
   background: none;
@@ -492,7 +477,6 @@ body {
   border-color: var(--color-text-secondary);
 }
 
-/* ─── Detail Layout ──────────────────────────────────────────────────────────── */
 
 .detail-layout {
   display: grid;
@@ -545,7 +529,6 @@ body {
   color: var(--color-accent);
 }
 
-/* ─── Detail Info ────────────────────────────────────────────────────────────── */
 
 .detail-title {
   font-size: 28px;
@@ -622,7 +605,6 @@ body {
   margin-left: 4px;
 }
 
-/* ─── Detail Sections ────────────────────────────────────────────────────────── */
 
 .detail-section {
   margin-bottom: 28px;
@@ -693,7 +675,6 @@ body {
   color: var(--color-text-primary);
 }
 
-/* ─── Detail Skeleton ────────────────────────────────────────────────────────── */
 
 .detail-skeleton {
   display: grid;
@@ -743,7 +724,6 @@ body {
   width: 40%;
 }
 
-/* ─── Detail Responsive ──────────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
   .detail-layout,

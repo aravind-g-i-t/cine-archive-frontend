@@ -1,12 +1,5 @@
 import MovieCard from "./MovieCard.jsx";
 
-// ─── MovieGrid ────────────────────────────────────────────────────────────────
-//
-// Props:
-//   movies      — array of movie objects from OMDB
-//   totalPages  — total number of pages for pagination
-//   currentPage — current active page
-//   onPageChange(page) — called when user clicks a page button
 
 const MovieGrid = ({ movies, totalPages, currentPage, onPageChange }) => {
   if (!movies || movies.length === 0) return null;
@@ -65,10 +58,6 @@ const MovieGrid = ({ movies, totalPages, currentPage, onPageChange }) => {
   );
 };
 
-// ─── Pagination Helper ────────────────────────────────────────────────────────
-
-// Returns an array of page numbers with ellipsis for large page counts
-// e.g. [1, '...', 4, 5, 6, '...', 20]
 const getPaginationRange = (current, total) => {
   if (total <= 5) {
     return Array.from({ length: total }, (_, i) => i + 1);

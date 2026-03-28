@@ -1,16 +1,57 @@
-# React + Vite
+# CineArchive — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite movie search interface. Search movies via the OMDB API, view details, and manage a session-based favourites list.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+React 18 + Vite
+React Router — page navigation
+Context API — global favourites state
+Axios — HTTP requests
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+npm install
+
+Create a `.env` file:
+
+VITE_API_URL=http://localhost:5000
+
+Run the dev server:
+
+npm run dev
+
+Runs at http://localhost:5173
+
+> Backend must be running for the app to work.
+
+---
+
+## Structure
+
+src/
+├── components/       # SearchBar, MovieCard, MovieGrid, Navbar
+├── context/          # FavouritesContext, FavouritesProvider
+├── hooks/            # useDebounce, useFavourites
+├── pages/            # HomePage, FavouritesPage, MovieDetailPage
+├── services/         # api.js — all axios calls
+├── App.jsx
+└── index.css
+
+---
+
+## Key Decisions
+
+**Debounced search** — 500ms delay via custom `useDebounce` hook to avoid excessive API calls.
+
+**Session ID** — `crypto.randomUUID()` stored in `localStorage` on first visit to separate favourites between users without login.
+
+**Optimistic updates** — favourites update instantly in the UI and roll back if the server call fails.
+
+**Context API** — lightweight global state for favourites; Redux would be overkill for this scale.
+
+**ESM syntax** — consistent modern `import`/`export` throughout.
