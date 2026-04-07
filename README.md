@@ -6,24 +6,27 @@ React + Vite movie search interface. Search movies via the OMDB API, view detail
 
 ## Tech Stack
 
-React 18 + Vite
-React Router — page navigation
-Context API — global favourites state
-Axios — HTTP requests
+- **React 18 + Vite**
+- **React Router** — page navigation
+- **Context API** — global favourites state
+- **Axios** — HTTP requests
 
 ---
 
 ## Setup
-
+```bash
 npm install
+```
 
 Create a `.env` file:
-
+```env
 VITE_API_URL=http://localhost:5000
+```
 
 Run the dev server:
-
+```bash
 npm run dev
+```
 
 Runs at http://localhost:5173
 
@@ -32,15 +35,28 @@ Runs at http://localhost:5173
 ---
 
 ## Structure
-
+```
 src/
-├── components/       # SearchBar, MovieCard, MovieGrid, Navbar
-├── context/          # FavouritesContext, FavouritesProvider
-├── hooks/            # useDebounce, useFavourites
-├── pages/            # HomePage, FavouritesPage, MovieDetailPage
-├── services/         # api.js — all axios calls
+├── components/
+│   ├── SearchBar
+│   ├── MovieCard
+│   ├── MovieGrid
+│   └── Navbar
+├── context/
+│   ├── FavouritesContext
+│   └── FavouritesProvider
+├── hooks/
+│   ├── useDebounce
+│   └── useFavourites
+├── pages/
+│   ├── HomePage
+│   ├── FavouritesPage
+│   └── MovieDetailPage
+├── services/
+│   └── api.js          # All axios calls
 ├── App.jsx
 └── index.css
+```
 
 ---
 
